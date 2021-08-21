@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script type='text/javascript'>
+      function downloadFunc() {
+        var content = <?= getData(); ?>;
+        var blob = new Blob([ content ], { "type" : "application/json"});
+        document.getElementById("download").href = window.URL.createObjectURL(blob);
+      }
+  </script>
+  </head>
+  <body>
+    <a id="download" href="#" download="filename.json" onclick="downloadFunc()">ダウンロード</a>
+  </body>
+</html>
